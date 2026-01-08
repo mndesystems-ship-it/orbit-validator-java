@@ -26,22 +26,16 @@ public final class OrbitValidator {
     private static final Set<String> PAYLOAD_FIELDS =
             Set.of("url");
 
-    /**
-     * Public constructor.
-     *
-     * Stateless and deterministic.
-     */
-    public OrbitValidator() {
-        // no state
-    }
+    // No instances
+    private OrbitValidator() {}
 
     /**
-     * Instance validation entry point.
+     * Validates a JSON string as an Orbit Protocol v1.0 message.
      *
      * @param json input JSON
      * @return ValidationResult.ok() if valid; otherwise ValidationResult.invalid(reason)
      */
-    public ValidationResult validate(String json) {
+    public static ValidationResult validate(String json) {
         if (json == null) {
             return ValidationResult.invalid("Input is null");
         }
@@ -148,25 +142,9 @@ public final class OrbitValidator {
     }
 
     /**
-     * Static validation entry point (backward-compatible).
-     *
-     * Delegates to a stateless instance.
+     * Convenience boolean-only check.
      */
-    public static ValidationResult validate(String json) {
-        return new OrbitValidator().validate(json);
-    }
-
-    /**
-     * Convenience boolean-only check (instance).
-     */
-    public boolean isValid(String json) {
-        return validate(json).isValid();
-    }
-
-    /**
-     * Convenience boolean-only check (static).
-     */
-    public static boolean isValidStatic(String json) {
+    public static boolean isValid(String json) {
         return validate(json).isValid();
     }
 }
