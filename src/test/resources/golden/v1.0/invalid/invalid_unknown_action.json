@@ -1,0 +1,6 @@
+{
+  "orbit": "1.0",
+  "id": "x",
+  "action": "launch-missiles",
+  "payload": { "url": "https://example.com" }
+}
