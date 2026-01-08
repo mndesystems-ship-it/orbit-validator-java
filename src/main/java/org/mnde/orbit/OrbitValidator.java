@@ -29,15 +29,14 @@ public final class OrbitValidator {
     /**
      * Public constructor.
      *
-     * The validator is stateless and deterministic.
-     * Instantiation is safe and intentional.
+     * Stateless and deterministic.
      */
     public OrbitValidator() {
         // no state
     }
 
     /**
-     * Validates a JSON string as an Orbit Protocol v1.0 message.
+     * Instance validation entry point.
      *
      * @param json input JSON
      * @return ValidationResult.ok() if valid; otherwise ValidationResult.invalid(reason)
@@ -149,9 +148,25 @@ public final class OrbitValidator {
     }
 
     /**
-     * Convenience boolean-only check.
+     * Static validation entry point (backward-compatible).
+     *
+     * Delegates to a stateless instance.
+     */
+    public static ValidationResult validate(String json) {
+        return new OrbitValidator().validate(json);
+    }
+
+    /**
+     * Convenience boolean-only check (instance).
      */
     public boolean isValid(String json) {
+        return validate(json).isValid();
+    }
+
+    /**
+     * Convenience boolean-only check (static).
+     */
+    public static boolean isValidStatic(String json) {
         return validate(json).isValid();
     }
 }
