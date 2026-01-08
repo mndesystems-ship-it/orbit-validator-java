@@ -1,0 +1,6 @@
+{
+  "orbit": "1.0",
+  "id": "abc123",
+  "action": "open",
+  "payload": { "url": "https://example.com" }
+}
