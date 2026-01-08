@@ -1,3 +1,9 @@
+⚠️ ARCHIVED / MOVED
+
+This project is no longer maintained.
+Development has moved to:
+https://github.com/mndesystems-ship-it/orbit-java
+
 # Orbit Protocol v1.0 — Reference Validator (Java)
 
 Authoritative reference validator for **Orbit Protocol v1.0**.
